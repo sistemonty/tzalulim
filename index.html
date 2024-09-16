@@ -5,127 +5,266 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>צהרוני צהלולים - הצטרפו אלינו!</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(to bottom left, #fef3c7, #fb923c);
+        @import url('https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;700&display=swap');
+        
+        :root {
+            --primary-color: #4a90e2;
+            --secondary-color: #f39c12;
+            --background-color: #f0f4f8;
+            --text-color: #333;
+        }
+
+        * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
         }
+
+        body {
+            font-family: 'Heebo', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
         .container {
-            background-color: white;
-            border-radius: 15px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            max-width: 1200px;
+            margin: 0 auto;
             padding: 2rem;
-            max-width: 800px;
-            width: 90%;
+        }
+
+        header {
             text-align: center;
+            margin-bottom: 2rem;
         }
+
+        .logo {
+            max-width: 200px;
+            margin-bottom: 1rem;
+        }
+
         h1 {
-            color: #1e40af;
+            color: var(--primary-color);
             font-size: 2.5rem;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
         }
-        h2 {
-            color: #ea580c;
+
+        .hero {
+            background-color: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+
+        .hero h2 {
+            color: var(--secondary-color);
             font-size: 1.8rem;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
         }
-        .grid {
+
+        .benefits {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 1rem;
             margin-bottom: 2rem;
         }
-        .grid-item {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: #f3f4f6;
+
+        .benefit-item {
+            background-color: #fff;
             padding: 1rem;
-            border-radius: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center;
         }
-        .highlight {
-            background-color: #dbeafe;
-            border-radius: 10px;
-            padding: 1rem;
-            margin-bottom: 2rem;
-        }
+
         .cities {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             gap: 0.5rem;
-            margin-bottom: 1rem;
+            margin-bottom: 2rem;
         }
+
         .city {
-            background-color: #e5e7eb;
-            color: #374151;
+            background-color: var(--primary-color);
+            color: white;
             padding: 0.5rem 1rem;
-            border-radius: 9999px;
+            border-radius: 20px;
+            font-size: 0.9rem;
         }
-        .cta {
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .cta-button {
             display: inline-block;
-            background-color: #22c55e;
+            background-color: var(--secondary-color);
             color: white;
             text-decoration: none;
             padding: 0.75rem 1.5rem;
-            border-radius: 10px;
+            border-radius: 5px;
             font-weight: bold;
-            margin: 0.5rem;
             transition: background-color 0.3s;
         }
-        .cta:hover {
-            background-color: #16a34a;
+
+        .cta-button:hover {
+            background-color: #e67e22;
         }
-        .cta.secondary {
-            background-color: #3b82f6;
+
+        form {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
-        .cta.secondary:hover {
-            background-color: #2563eb;
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        button[type="submit"] {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #3a7bd5;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>הצטרפו לצהרוני צהלולים ברחבי הארץ!</h1>
-        <h2>דרושים/ות מובילים/ות לצהרוני צהלולים</h2>
-        
-        <div class="grid">
-            <div class="grid-item">
-                <p>שעות עבודה: 13:30-16:00</p>
+        <header>
+            <img src="https://i.ibb.co/89Swv5d/2.png" alt="צהרוני צהלולים" class="logo">
+            <h1>הצטרפו לצהרוני צהלולים ברחבי הארץ!</h1>
+        </header>
+
+        <section class="hero">
+            <h2>דרושים/ות מובילים/ות וסייעות לצהרוני צהלולים</h2>
+            <p>בואו להיות חלק ממשפחת צהלולים ולהשפיע על עתיד הילדים!</p>
+        </section>
+
+        <section class="benefits">
+            <div class="benefit-item">
+                <h3>שעות עבודה</h3>
+                <p>13:30-16:00</p>
             </div>
-            <div class="grid-item">
-                <p>מענק חתימה: 500 ₪</p>
+            <div class="benefit-item">
+                <h3>מענק חתימה</h3>
+                <p>500 ₪</p>
             </div>
-            <div class="grid-item">
-                <p>מענק התמדה: 500 ₪</p>
+            <div class="benefit-item">
+                <h3>מענק התמדה</h3>
+                <p>500 ₪</p>
             </div>
-            <div class="grid-item">
-                <p>שכר שעתי: עד 60 ₪ לשעה</p>
+            <div class="benefit-item">
+                <h3>שכר</h3>
+                <p>משתנה בהתאם לתפקיד, ניסיון וכישורים</p>
             </div>
-        </div>
-        
-        <div class="highlight">
-            <p><strong>הצטרפו אלינו והשפיעו על עתיד הילדים!</strong></p>
-            <p>תנאים סוציאליים מלאים | עבודה בשעות הצהריים בלבד</p>
-        </div>
-        
-        <h3>אנחנו פועלים ברחבי הארץ:</h3>
-        <div class="cities">
-            <span class="city">ראשון לציון</span>
-            <span class="city">פתח תקווה</span>
-            <span class="city">ראש העין</span>
-            <span class="city">חדרה</span>
-            <span class="city">נתניה</span>
-            <span class="city">קרית אתא</span>
-        </div>
-        
-        <a href="tel:037509777" class="cta">התקשרו עכשיו: 037509777</a>
-        <a href="mailto:G037509777@GMAIL.COM" class="cta secondary">שלחו מייל: G037509777@GMAIL.COM</a>
+        </section>
+
+        <section class="cities">
+            <div class="city">ראשון לציון</div>
+            <div class="city">פתח תקווה</div>
+            <div class="city">ראש העין</div>
+            <div class="city">חדרה</div>
+            <div class="city">נתניה</div>
+            <div class="city">קרית אתא</div>
+            <div class="city">גני תקווה</div>
+        </section>
+
+        <section class="cta-buttons">
+            <a href="tel:037509777" class="cta-button">התקשרו עכשיו: 037509777</a>
+            <a href="https://wa.me/972037509777" class="cta-button">צרו קשר בוואטסאפ</a>
+        </section>
+
+        <form id="application-form">
+            <h3>מלאו את הטופס ונחזור אליכם בהקדם</h3>
+            <div class="form-group">
+                <label for="firstName">שם פרטי</label>
+                <input type="text" id="firstName" name="firstName" required>
+            </div>
+            <div class="form-group">
+                <label for="lastName">שם משפחה</label>
+                <input type="text" id="lastName" name="lastName" required>
+            </div>
+            <div class="form-group">
+                <label for="idNumber">תעודת זהות</label>
+                <input type="text" id="idNumber" name="idNumber" required>
+            </div>
+            <div class="form-group">
+                <label for="birthDate">תאריך לידה</label>
+                <input type="date" id="birthDate" name="birthDate" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">מספר טלפון</label>
+                <input type="tel" id="phone" name="phone" required>
+            </div>
+            <div class="form-group">
+                <label for="email">כתובת מייל</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="experience">ניסיון קודם</label>
+                <textarea id="experience" name="experience" rows="3"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="reference">היכן ניתן לברר עליך?</label>
+                <input type="text" id="reference" name="reference">
+            </div>
+            <button type="submit">שליחת טופס</button>
+        </form>
     </div>
+
+    <script>
+        document.getElementById('application-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData.entries());
+
+            fetch('https://hook.eu1.make.com/hx4sfcz3w7q9b1d2oa3ahjqcvdm2uda3', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert('הטופס נשלח בהצלחה!');
+                this.reset();
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+                alert('אירעה שגיאה בשליחת הטופס. אנא נסו שנית מאוחר יותר.');
+            });
+        });
+    </script>
 </body>
 </html>
