@@ -1,0 +1,102 @@
+import React, { useState, useEffect } from 'react';
+import { Sun, Star, Clock, Phone, Mail, MapPin } from 'lucide-react';
+
+const LandingPage = () => {
+  const [displayedText, setDisplayedText] = useState('');
+  const fullText = 'הצטרפו לצהרוני צהלולים ברחבי הארץ!';
+  const [highlightedCity, setHighlightedCity] = useState('');
+  
+  const cities = ['ראשון לציון', 'פתח תקווה', 'ראש העין', 'חדרה', 'נתניה', 'קרית אתא'];
+  const mainCities = ['ראשון לציון', 'פתח תקווה', 'ראש העין'];
+
+  useEffect(() => {
+    let index = 0;
+    const intervalId = setInterval(() => {
+      setDisplayedText(fullText.slice(0, index));
+      index++;
+      if (index > fullText.length) {
+        clearInterval(intervalId);
+      }
+    }, 100);
+    return () => clearInterval(intervalId);
+  }, []);
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setHighlightedCity(mainCities[Math.floor(Math.random() * mainCities.length)]);
+    }, 2000);
+    return () => clearInterval(intervalId);
+  }, []);
+
+  return (
+    <div dir="rtl" className="min-h-screen bg-gradient-to-bl from-yellow-200 to-orange-400 flex flex-col items-center justify-center p-4 text-center">
+      <h1 className="text-4xl font-bold mb-8 text-blue-800">
+        {displayedText}
+        <span className="animate-pulse">|</span>
+      </h1>
+      
+      <div className="bg-white rounded-lg shadow-xl p-8 max-w-3xl w-full">
+        <h2 className="text-3xl font-semibold mb-6 text-orange-600">דרושים/ות מובילים/ות לצהרוני צהלולים</h2>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+          <div className="flex items-center">
+            <Clock className="ml-2" />
+            <p>שעות עבודה: 13:30-16:00</p>
+          </div>
+          <div className="flex items-center">
+            <Star className="ml-2" />
+            <p>מענק חתימה: 500 ₪</p>
+          </div>
+          <div className="flex items-center">
+            <Sun className="ml-2" />
+            <p>מענק התמדה: 500 ₪</p>
+          </div>
+          <div className="flex items-center">
+            <Star className="ml-2" />
+            <p>שכר שעתי: עד 60 ₪ לשעה</p>
+          </div>
+        </div>
+        
+        <div className="bg-blue-100 rounded-lg p-4 mb-8">
+          <p className="font-semibold text-blue-800 mb-2">הצטרפו אלינו והשפיעו על עתיד הילדים!</p>
+          <p className="text-blue-600">תנאים סוציאליים מלאים | עבודה בשעות הצהריים בלבד</p>
+        </div>
+        
+        <div className="mb-8">
+          <h3 className="text-xl font-semibold mb-4">אנחנו פועלים ברחבי הארץ:</h3>
+          <div className="flex flex-wrap justify-center gap-4">
+            {cities.map((city) => (
+              <div
+                key={city}
+                className={`px-4 py-2 rounded-full ${
+                  city === highlightedCity
+                    ? 'bg-yellow-400 text-black transform scale-110 transition-all duration-300'
+                    : 'bg-gray-200 text-gray-700'
+                }`}
+              >
+                <MapPin className="inline ml-1" size={16} />
+                {city}
+              </div>
+            ))}
+          </div>
+          <p className="mt-4 text-red-600 font-semibold animate-bounce">
+            דרושים במיוחד ב{highlightedCity}!
+          </p>
+        </div>
+        
+        <div className="flex flex-col items-center space-y-4">
+          <a href="tel:037509777" className="flex items-center justify-center w-full bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-lg transition duration-300 transform hover:scale-105">
+            <Phone className="ml-2" />
+            התקשרו עכשיו: 037509777
+          </a>
+          <a href="mailto:G037509777@GMAIL.COM" className="flex items-center justify-center w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-lg transition duration-300 transform hover:scale-105">
+            <Mail className="ml-2" />
+            שלחו מייל: G037509777@GMAIL.COM
+          </a>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default LandingPage;
